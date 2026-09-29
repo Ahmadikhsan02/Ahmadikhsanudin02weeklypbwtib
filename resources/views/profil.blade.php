@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+@extends('layouts.main')
+    @section('content')
+    
     <title>profilI</title>
-</head>
-<body>
-    <h1>halaman profil</h1>
-</body>
-</html>
+    <p>nama:PO</p>
+    <p>prodi:TI</p>
+    <P>nim:1234567890</P>
+
+  
+@endsection

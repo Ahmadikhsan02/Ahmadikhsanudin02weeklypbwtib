@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>berita</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+
+ @extends('layouts.main')
+    @section('content')
     <h1>halaman berita</h1>
-</body>
-</html>
+@endsection

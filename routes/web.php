@@ -1,5 +1,6 @@
 <?php
-
+use App\Http\Controllers\BeritaController;
+use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -7,41 +8,15 @@ Route::get('/', function () {
         "title" => "home",
     ]);
 });
-Route::get('/berita', function () {
-   
-    return view('berita',[
-        "title" => "berita",
-        "beritas" => $data_berita,
-    ]);
-});
-Route::get('/berita/slug', function ($slug) {
+Route::get('/berita', [BeritaController::class, 'tampilBerita']);
 
- $data_berita = [
-    [
-        "judul" => "mahasiswa",
-        "slug" => "mahasiswa- ti",
-        "penulis" => "admin",
-        "konten" => "tydrstetyguhijolmknjbhvgcfxdaqwertyuiopppppppppppppoihgfdsdfghjk"
-    ],
-    [
-        "judul" => "dosen ti",
-        "slug" => "dosen-ti",
-        "penulis" => " kita",
-        "konten" => " asdfghjklqwertyuiopxcvbnmsdfghjkwertyuixcvbnrtyutgberthoij"
-    ]
-    ];
-    $berita = [];
-    foreach ($data_berita as $b)
-    {
-if($b["slug"]== $slug)
+Route::get('/berita/slug', [BeritaController::class, 'getBerita']); 
+
 {
-    $berita = $b;
-}
-}
 return view('beritatunggal',[
 "title" => $berita["judul"],
 ]);
-});
+};
 
 Route::get('/kontak', function () {
     return view('kontak',[

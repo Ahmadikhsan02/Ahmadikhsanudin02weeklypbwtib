@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -17,9 +19,23 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        DB::table('users')->insert([
+            'name' => Str::random(10),
+            'email' => Str::random(10).'@example.com',
+            'password' => Hash::make('password'),
+    
+        ]);
+        db::table('beritas')->insert([
+            'judul' => 'iya kita dimana-mana',
+            'slug' => 'iya kita ada di mana- mana',
+            'penulis' => 'lalapo',
+            'konten' => 'hwilelihkugjyffffffffffffffff
+            ffffffffffffffffffffffffffffffffffffffffffvvvvvvv
+            vvvvvvvvvvvvvvvvvvvvvwwwwwwwwwwwwwwwwwwwwwwwooooooooo
+            ooooooooooooooooopppppppppppppppppppppqqqqqqqqqqqqqqqqqq
+            qqqqlllllllllllllllllllllllllsssssssssssssssssssssssssssss
+            sssssssssssssnnnnnssssssssssssssssssssssssssssssssssssssssssss
+            ssssssssssssssssssssssssssssssnnnnnnn'
         ]);
     }
 }

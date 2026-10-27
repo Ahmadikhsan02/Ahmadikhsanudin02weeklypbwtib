@@ -1,13 +1,29 @@
 <?php
 
+
+
 namespace App\Http\Controllers;
 
+use App\Models\Berita; // Pastikan model Berita sudah dibuat
 use Illuminate\Http\Request;
-use App\Models\Berita;
 
 class BeritaController extends Controller
 {
-    public function tampilBerita()
+    public function show($slug)
+    {
+        // Cari data berita — di sini variabel $berita DIBUAT
+        $berita = Berita::where('slug', $slug)->firstOrFail();
+
+        // Kirim data ke view
+        return view('beritatunggal', [
+            'title' => $berita->judul,
+            'berita' => $berita
+        ]);
+    }
+}
+
+    {
+        public function tampilBerita()
     {
          return view('berita',[
         "title" => "berita",
